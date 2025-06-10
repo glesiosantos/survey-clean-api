@@ -1,0 +1,5 @@
+{
+  "env": ["node"],
+  "ignore": ["node_modules", "dist"],
+  "project": "./tsconfig.json"
+}

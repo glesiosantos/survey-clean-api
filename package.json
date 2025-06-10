@@ -5,9 +5,14 @@
   "repository": "git@github.com:glesiosantos/survey-clean-api.git",
   "author": "Glêsio Santos <glesioss@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard --fix"
+  },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "git-commit-msg-linter": "^5.0.8",
-    "typescript": "^5.8.3"
+    "ts-standard": "^12.0.2",
+    "typescript": "5.1.6"
   }
 }
