@@ -1,0 +1,8 @@
+{
+  "name": "survey-clean-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:glesiosantos/survey-clean-api.git",
+  "author": "Glêsio Santos <glesioss@gmail.com>",
+  "license": "MIT"
+}
