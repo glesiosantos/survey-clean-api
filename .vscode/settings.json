@@ -1,7 +1,10 @@
 {
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
-  "eslint.validate": ["javascript", "typescript"],
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  }
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "eslint.alwaysShowStatus": true
 }
