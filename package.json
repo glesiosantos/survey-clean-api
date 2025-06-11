@@ -2,12 +2,14 @@
   "name": "survey-clean-api",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "git@github.com:glesiosantos/survey-clean-api.git",
   "author": "Glêsio Santos <glesioss@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "ts-standard",
-    "lint:fix": "ts-standard --fix"
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
@@ -15,6 +17,8 @@
     "@typescript-eslint/parser": "^8.34.0",
     "eslint": "^9.28.0",
     "eslint-config-love": "^120.0.0",
-    "git-commit-msg-linter": "^5.0.8"
+    "eslint-plugin-prettier": "^5.4.1",
+    "git-commit-msg-linter": "^5.0.8",
+    "typescript": "^5.8.3"
   }
 }
