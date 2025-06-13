@@ -1,5 +1,5 @@
-function main(): string {
-  return '1'
+function main(): number {
+  return 1
 }
 
 main()
