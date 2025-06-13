@@ -1,9 +1,7 @@
 {
   "editor.minimap.enabled": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "eslint.alwaysShowStatus": true
 }
