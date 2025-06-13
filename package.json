@@ -11,13 +11,12 @@
     "prepare": "husky || true"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
     "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
     "eslint": "^9.28.0",
     "eslint-plugin-prettier": "^5.4.1",
+    "git-commit-msg-linter": "^5.0.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "pinst": "^3.0.0",
