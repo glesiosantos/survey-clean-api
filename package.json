@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint .  --fix",
     "prepare": "husky || true",
-    "test": "jest"
+    "test": "jest",
+    "test:stage": "jest"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
