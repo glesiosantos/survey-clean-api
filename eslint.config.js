@@ -44,7 +44,8 @@ export default [
         'error',
         { argsIgnorePattern: '^_' }
       ],
-      '@typescript-eslint/no-magic-numbers': 'off'
+      '@typescript-eslint/no-magic-numbers': 'off',
+      '@typescript-eslint/no-unused-vars': 'off'
     }
   }
 ]
