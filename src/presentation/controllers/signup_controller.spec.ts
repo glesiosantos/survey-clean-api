@@ -4,7 +4,7 @@ import { HttpRequest, HttpResponse } from '../protocols/http'
 import { SignUpController } from './signup_controller'
 
 describe('SignUp Controller', () => {
-  it('should return 400 when name is not provided', () => {
+  it('should return 400 when name is not provided', async () => {
     const sut = new SignUpController()
     const httpRequest: HttpRequest = {
       body: {
@@ -14,11 +14,11 @@ describe('SignUp Controller', () => {
       }
     }
 
-    const httpResponse: HttpResponse = sut.handle(httpRequest)
+    const httpResponse: HttpResponse = await sut.handle(httpRequest)
     expect(httpResponse).toEqual(badRequest(new MissingParamError('name')))
   })
 
-  it('should return 400 when email is not provided', () => {
+  it('should return 400 when email is not provided', async () => {
     const sut = new SignUpController()
     const httpRequest: HttpRequest = {
       body: {
@@ -28,11 +28,11 @@ describe('SignUp Controller', () => {
       }
     }
 
-    const httpResponse = sut.handle(httpRequest)
+    const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse).toEqual(badRequest(new MissingParamError('email')))
   })
 
-  it('should return 400 when password is not provided', () => {
+  it('should return 400 when password is not provided', async () => {
     const sut = new SignUpController()
     const httpRequest: HttpRequest = {
       body: {
@@ -42,11 +42,11 @@ describe('SignUp Controller', () => {
       }
     }
 
-    const httpResponse = sut.handle(httpRequest)
+    const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse).toEqual(badRequest(new MissingParamError('password')))
   })
 
-  it('should return 400 when passwordConfirmation is not provided', () => {
+  it('should return 400 when passwordConfirmation is not provided', async () => {
     const sut = new SignUpController()
     const httpRequest: HttpRequest = {
       body: {
@@ -56,7 +56,7 @@ describe('SignUp Controller', () => {
       }
     }
 
-    const httpResponse = sut.handle(httpRequest)
+    const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse).toEqual(
       badRequest(new MissingParamError('passwordConfirmation'))
     )
