@@ -1,8 +1,10 @@
 {
   "editor.minimap.enabled": false,
   "editor.fontSize": 16,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
   "eslint.validate": ["typescript", "typescriptreact"],
-  "eslint.alwaysShowStatus": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint":"always"
+  }
 }
