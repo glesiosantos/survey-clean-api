@@ -10,7 +10,7 @@
     "lint": "eslint .  --fix",
     "prepare": "husky || true",
     "test": "jest",
-    "test:stage": "jest"
+    "test:staged": "jest --passWithNoTests"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
