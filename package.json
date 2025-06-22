@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .  --fix",
     "prepare": "husky || true",
-    "test": "jest",
+    "test": "jest --watch",
     "test:staged": "jest --passWithNoTests"
   },
   "devDependencies": {
