@@ -1,11 +1,14 @@
 import { MissingParamError } from '../errors/missing_param_error'
 import { badRequest } from '../helpers/helper'
+import { Controller } from '../protocols/controller'
 import { HttpRequest, HttpResponse } from '../protocols/http'
 import { SignUpController } from './signup_controller'
 
+const makeSut = (): Controller => new SignUpController()
+
 describe('SignUp Controller', () => {
   it('should return 400 when name is not provided', async () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest: HttpRequest = {
       body: {
         email: 'any_email@mail.com',
@@ -19,7 +22,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return 400 when email is not provided', async () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest: HttpRequest = {
       body: {
         name: 'any_name',
@@ -33,7 +36,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return 400 when password is not provided', async () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest: HttpRequest = {
       body: {
         name: 'any_name',
@@ -47,7 +50,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return 400 when passwordConfirmation is not provided', async () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest: HttpRequest = {
       body: {
         name: 'any_name',
