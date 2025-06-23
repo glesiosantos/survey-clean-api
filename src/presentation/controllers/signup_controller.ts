@@ -6,7 +6,7 @@ import { EmailValidator } from '../protocols/email_validator'
 import { HttpRequest, HttpResponse } from '../protocols/http'
 
 export class SignUpController implements Controller {
-  constructor(readonly emailValidator: EmailValidator) {}
+  constructor(private readonly emailValidator: EmailValidator) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
     for (let field of requiredFields) {
@@ -21,6 +21,6 @@ export class SignUpController implements Controller {
       return badRequest(new InvalidParamError('email'))
     }
 
-    return new Promise((resolve) => null)
+    return new Promise((resolve) => resolve({ statusCode: 200 }))
   }
 }
