@@ -1,10 +1,11 @@
-import { InvalidParamError } from '../errors/invalid_param_error'
-import { MissingParamError } from '../errors/missing_param_error'
-import { ServerError } from '../errors/server_error'
+import { InvalidParamError, MissingParamError, ServerError } from '../errors'
 import { badRequest, serverError } from '../helpers/helper'
-import { Controller } from '../protocols/controller'
-import { EmailValidator } from '../protocols/email_validator'
-import { HttpRequest, HttpResponse } from '../protocols/http'
+import {
+  Controller,
+  EmailValidator,
+  HttpRequest,
+  HttpResponse
+} from '../protocols'
 import { SignUpController } from './signup_controller'
 
 type SutTypes = {
