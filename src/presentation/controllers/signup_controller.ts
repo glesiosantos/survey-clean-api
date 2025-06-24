@@ -29,6 +29,10 @@ export class SignUpController implements Controller {
         return badRequest(new InvalidParamError('email'))
       }
 
+      if (httpRequest.body.password !== httpRequest.body.passwordConfirmation) {
+        return badRequest(new InvalidParamError('password'))
+      }
+
       return new Promise((resolve) => resolve({ statusCode: 200 }))
     } catch (error) {
       return serverError()
