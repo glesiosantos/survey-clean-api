@@ -8,7 +8,7 @@ import {
   HttpResponse
 } from './signup_protocol'
 import { InvalidParamError, MissingParamError } from '../../errors'
-import { badRequest, serverError } from '../../helpers/helper'
+import { badRequest, ok, serverError } from '../../helpers/helper'
 import { SignUpController } from './signup_controller'
 
 type SutTypes = {
@@ -249,14 +249,13 @@ describe('SignUp Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual({
-      statusCode: 200,
-      body: {
+    expect(httpResponse).toEqual(
+      ok({
         id: 'valid_id',
         name: 'any_name',
         email: 'any_email@mail.com',
         password: 'any_password'
-      }
-    })
+      })
+    )
   })
 })
