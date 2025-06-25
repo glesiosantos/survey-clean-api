@@ -9,8 +9,13 @@
   "scripts": {
     "lint": "eslint .  --fix",
     "prepare": "husky || true",
-    "test": "jest --watch",
-    "test:staged": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests",
+    "test:unit": "npm test -- -c jest-unit.config.mjs --watch",
+    "test:inte": "npm test -- -c jest-inte.config.mjs --watch",
+    "test:staged": "npm test --findRelatedTests",
+    "test:ci": "npm test -- --coverage",
+    "test:clear": "jest --clearCache"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
