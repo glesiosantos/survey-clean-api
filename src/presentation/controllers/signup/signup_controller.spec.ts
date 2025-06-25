@@ -17,6 +17,13 @@ type SutTypes = {
   addAccountStub: AddAccount
 }
 
+const makeFakeAccount = (): AccountModel => ({
+  id: 'valid_id',
+  name: 'any_name',
+  email: 'any_email@mail.com',
+  password: 'any_password'
+})
+
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
     isValid(email: string): boolean {
@@ -30,14 +37,7 @@ const makeEmailValidator = (): EmailValidator => {
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
     add(account: AddAccountModel): Promise<AccountModel> {
-      const fakeAccount = {
-        id: 'valid_id',
-        name: 'any_name',
-        email: 'any_email@mail.com',
-        password: 'any_password'
-      }
-
-      return new Promise((resolve) => resolve(fakeAccount))
+      return new Promise((resolve) => resolve(makeFakeAccount()))
     }
   }
 
@@ -249,13 +249,6 @@ describe('SignUp Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(
-      ok({
-        id: 'valid_id',
-        name: 'any_name',
-        email: 'any_email@mail.com',
-        password: 'any_password'
-      })
-    )
+    expect(httpResponse).toEqual(ok(makeFakeAccount()))
   })
 })
