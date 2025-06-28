@@ -24,7 +24,7 @@ const makeSut = (): SutTypes => {
 }
 
 describe('DDAddAccount usecase', () => {
-  it('should call Encrypter with correct password', () => {
+  it('should call Encrypter with correct password', async () => {
     const { sut, encrypterStub } = makeSut()
 
     const accountData = {
@@ -35,7 +35,24 @@ describe('DDAddAccount usecase', () => {
 
     const encryptSpy = jest.spyOn(encrypterStub, 'encrypt')
 
-    sut.add(accountData)
+    await sut.add(accountData)
     expect(encryptSpy).toHaveBeenCalledWith('any_password')
+  })
+
+  it('should throws when Encrypter throws', async () => {
+    const { sut, encrypterStub } = makeSut()
+
+    const accountData = {
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'any_password'
+    }
+
+    jest.spyOn(encrypterStub, 'encrypt').mockImplementationOnce(() => {
+      throw new Error('Erro simulado')
+    })
+
+    const promise = sut.add(accountData)
+    await expect(promise).rejects.toThrow()
   })
 })
