@@ -1,9 +1,15 @@
-import { AddAccount } from '../../../domain/usecases/account/add_account'
 import { DBAddAccount } from '../../db/db_add_account'
-import { Encrypter } from '../../protocol/encrypter'
+import {
+  AccountModel,
+  AddAccount,
+  AddAccountModel,
+  AddAccountRepository,
+  Encrypter
+} from '../../db/db_add_account_protocol'
 
 type SutTypes = {
   encrypterStub: Encrypter
+  addAccountRepositoryStub: AddAccountRepository
   sut: AddAccount
 }
 
@@ -16,11 +22,28 @@ const makeEncrypter = (): Encrypter => {
   return new EncrypterStub()
 }
 
+const makeAddAccountRepository = (): AddAccountRepository => {
+  class AddAccountRepositoryStub implements AddAccountRepository {
+    async add(accountData: AddAccountModel): Promise<AccountModel> {
+      return new Promise((resolve) =>
+        resolve({
+          id: 'id_valid',
+          name: 'any_name',
+          email: 'any_email@mail.com',
+          password: 'hashed_password'
+        })
+      )
+    }
+  }
+  return new AddAccountRepositoryStub()
+}
+
 const makeSut = (): SutTypes => {
   const encrypterStub = makeEncrypter()
-  const sut = new DBAddAccount(encrypterStub)
+  const addAccountRepositoryStub = makeAddAccountRepository()
+  const sut = new DBAddAccount(encrypterStub, addAccountRepositoryStub)
 
-  return { sut, encrypterStub }
+  return { sut, encrypterStub, addAccountRepositoryStub }
 }
 
 describe('DDAddAccount usecase', () => {
@@ -54,5 +77,24 @@ describe('DDAddAccount usecase', () => {
 
     const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
+  })
+
+  it('should calls AddAccountRepository with correct values', async () => {
+    const { sut, addAccountRepositoryStub } = makeSut()
+
+    const accountData = {
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'any_password'
+    }
+
+    const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
+
+    await sut.add(accountData)
+    expect(addSpy).toHaveBeenCalledWith({
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'hashed_password'
+    })
   })
 })
