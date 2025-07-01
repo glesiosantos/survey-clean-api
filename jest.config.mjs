@@ -13,6 +13,7 @@ const config = {
     '.+\\.ts$': 'ts-jest'
   },
   preset: '@shelf/jest-mongodb',
+  testEnvironment: 'node'
 }
 
 export default config
