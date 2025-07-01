@@ -11,7 +11,8 @@ const config = {
   coverageProvider: "v8",
   transform: {
     '.+\\.ts$': 'ts-jest'
-  }
+  },
+  preset: '@shelf/jest-mongodb',
 }
 
 export default config
