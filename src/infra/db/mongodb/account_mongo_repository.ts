@@ -11,6 +11,6 @@ export class AccountMongoRepository implements AddAccountRepository {
       _id: insertedId
     })
 
-    return Object.assign({}, data, { id: insertedId })
+    return MongoHelper.map(data)
   }
 }
