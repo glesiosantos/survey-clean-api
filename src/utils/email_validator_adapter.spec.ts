@@ -1,5 +1,5 @@
-import { EmailValidator } from '../presentation/protocols/email_validator'
-import { EmailValidatorAdapter } from './email_validator_adapter'
+import { EmailValidator } from '../presentation/protocols/email_validator.ts'
+import { EmailValidatorAdapter } from './email_validator_adapter.ts'
 import validator from 'validator'
 
 // Mocando a biblioteca

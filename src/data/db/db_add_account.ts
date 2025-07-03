@@ -4,7 +4,7 @@ import {
   AddAccountModel,
   AddAccountRepository,
   Encrypter
-} from './db_add_account_protocol'
+} from './db_add_account_protocol.ts'
 
 export class DBAddAccount implements AddAccount {
   constructor(

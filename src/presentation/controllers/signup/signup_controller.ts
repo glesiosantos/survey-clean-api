@@ -1,12 +1,12 @@
-import { AddAccount } from '../../../domain/usecases/account/add_account'
-import { InvalidParamError, MissingParamError, ServerError } from '../../errors'
-import { badRequest, ok, serverError } from '../../helpers/helper'
+import { AddAccount } from '../../../domain/usecases/account/add_account.ts'
+import { InvalidParamError, MissingParamError } from '../../errors/index.ts'
+import { badRequest, ok, serverError } from '../../helpers/helper.ts'
 import {
   Controller,
   EmailValidator,
   HttpRequest,
   HttpResponse
-} from './signup_protocol'
+} from './signup_protocol.ts'
 
 export class SignUpController implements Controller {
   constructor(
@@ -44,7 +44,7 @@ export class SignUpController implements Controller {
 
       return ok(account)
     } catch (error) {
-      return serverError()
+      return serverError(error as Error)
     }
   }
 }

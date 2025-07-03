@@ -1,5 +1,5 @@
-import { AccountMongoRepository } from './account_mongo_repository'
-import { MongoHelper } from './helper/mongo_helper'
+import { AccountMongoRepository } from './account_mongo_repository.ts'
+import { MongoHelper } from './helper/mongo_helper.ts'
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => await MongoHelper.connect(process.env.MONGO_URL))

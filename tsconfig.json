@@ -9,6 +9,8 @@
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": false,
     "allowImportingTsExtensions": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noEmit": true,
     "strict": true,
     "allowJs": true,

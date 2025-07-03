@@ -1,4 +1,4 @@
-import { AccountModel } from '../../../domain/models/account_model'
+import { AccountModel } from '../../../domain/models/account_model.ts'
 import {
   AddAccount,
   AddAccountModel,
@@ -6,10 +6,10 @@ import {
   EmailValidator,
   HttpRequest,
   HttpResponse
-} from './signup_protocol'
-import { InvalidParamError, MissingParamError } from '../../errors'
-import { badRequest, ok, serverError } from '../../helpers/helper'
-import { SignUpController } from './signup_controller'
+} from './signup_protocol.ts'
+import { InvalidParamError, MissingParamError } from '../../errors/index.ts'
+import { badRequest, ok, serverError } from '../../helpers/helper.ts'
+import { SignUpController } from './signup_controller.ts'
 
 type SutTypes = {
   sut: Controller
@@ -187,7 +187,7 @@ describe('SignUp Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(serverError())
+    expect(httpResponse).toEqual(serverError(new Error()))
   })
 
   it('should call AddAccount with correct values', async () => {
@@ -233,7 +233,7 @@ describe('SignUp Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(serverError())
+    expect(httpResponse).toEqual(serverError(new Error()))
   })
 
   it('should return 200 when valid data provided', async () => {

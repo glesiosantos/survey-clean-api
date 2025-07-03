@@ -1,4 +1,4 @@
-import { EmailValidator } from '../presentation/protocols/email_validator'
+import { EmailValidator } from '../presentation/protocols/email_validator.ts'
 import validator from 'validator'
 
 export class EmailValidatorAdapter implements EmailValidator {
