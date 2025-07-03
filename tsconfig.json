@@ -4,13 +4,16 @@
     "outDir": "./dist",
     "module": "es2022",
     "moduleResolution": "node",
+    "moduleDetection": "force",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": false,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["src/*"]
     }
