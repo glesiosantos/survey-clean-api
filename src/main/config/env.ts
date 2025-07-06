@@ -1,4 +1,4 @@
 export default {
-  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27107/survey_db',
+  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost/survey_db',
   port: process.env.PORT || 5050
 }
