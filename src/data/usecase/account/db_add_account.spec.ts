@@ -1,11 +1,11 @@
-import { DBAddAccount } from '../../db/db_add_account.ts'
+import { DBAddAccount } from './db_add_account.ts'
 import {
   AccountModel,
   AddAccount,
   AddAccountModel,
   AddAccountRepository,
   Encrypter
-} from '../../db/db_add_account_protocol.ts'
+} from './db_add_account_protocol.ts'
 
 type SutTypes = {
   encrypterStub: Encrypter
