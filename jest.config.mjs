@@ -1,12 +1,21 @@
 /** @type {import('jest').Config} */
 const config = {
   roots: ['<rootDir>/src'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/domain/**/**.ts', 
+    '!<rootDir>/src/main/server.ts', 
+    '!<rootDir>/src/main/**', 
+    '!<rootDir>/src/**/**/**/*_protocol.ts',
+    '!**/protocols/**'
+  ],
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   transform: {
     '.+\\.ts$': 'ts-jest'
-  }
+  },
+  preset: '@shelf/jest-mongodb',
+  testEnvironment: 'node'
 }
 
 export default config
